@@ -97,9 +97,5 @@ def update_task(task_id):
     db.session.commit()
     return jsonify(task.to_dict())
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 09d02b0 (Initial)
 if __name__ == '__main__':
     app.run(debug=True)
