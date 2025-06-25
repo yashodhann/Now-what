@@ -36,6 +36,13 @@ class Task(db.Model):
 with app.app_context():
     db.create_all()
 
+@app.route('/', methods=['GET'])
+def greet():
+    query = Task.query
+
+    tasks = query.order_by(Task.created_at.asc()).all()
+    return jsonify([task.to_dict() for task in tasks])
+
 # Get all tasks with optional filters
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
